@@ -2,6 +2,7 @@ import appointment.Appointment;
 import appointment.AppointmentDetails;
 import appointment.AppointmentScheduler;
 import main.Doctor;
+import main.Hospital;
 import main.Patient;
 
 import java.time.LocalDate;
@@ -15,6 +16,13 @@ public class Main {
         Patient patient = new Patient("Resul", 26, "Baku");
         Patient patient2 = new Patient("Thomas", 18, "Baku");
         Patient patient3 = new Patient("Mark", 37, "Baku");
+
+        Hospital hospital = Hospital.getInstance();
+        hospital.addPerson(doctor);
+        hospital.addPerson(patient);
+        hospital.addPerson(doctor2);
+        hospital.remove(doctor2);
+        hospital.getAll();
 
         AppointmentDetails appointmentDetails = new AppointmentDetails(patient, doctor, LocalDate.of(2023, 12, 31));
         AppointmentDetails appointmentDetails2 = new AppointmentDetails(patient2, doctor2, LocalDate.of(2024, 3, 18));
@@ -32,6 +40,7 @@ public class Main {
 //        appointmentScheduler.getAll(appointment);
 //        appointmentScheduler.cancelAppointment(appointmentDetails2);
         appointmentScheduler.getSpecific(doctor2);
+
 
 
     }
